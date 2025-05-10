@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>母亲节快乐！❤</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #ffe4ec;
+      font-family: "Segoe UI", sans-serif;
+      color: #5a2a36;
+      text-align: center;
+      padding: 40px;
+      background-image: url('stickers/bg-stickers.png');
+      background-repeat: repeat;
+    }
+    h1 {
+      font-size: 3em;
+      color: #d6336c;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px #ffffff;
+    }
+    .message {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+      color: #c2185b;
+      font-weight: bold;
+    }
+    .slideshow-container {
+      position: relative;
+      max-width: 600px;
+      margin: auto;
+    }
+    .mySlides {
+      display: none;
+      position: relative;
+    }
+    .mySlides img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .quote {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 1em;
+      color: #a6004a;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .mySlides:hover .quote {
+      opacity: 1;
+    }
+    .stickers {
+      margin: 20px;
+    }
+    .stickers img {
+      width: 80px;
+      margin: 10px;
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>母亲节快乐！❤</h1>
+  <div class="message">你是世界上最好的妈咪！</div>
+
+  <div class="slideshow-container">
+    <div class="mySlides">
+      <img src="IMG_2626.JPG" alt="Image 1">
+      <div class="quote">你让我每天都感到幸福！</div>
+    </div>
+    <div class="mySlides">
+      <img src="IMG_2849.JPG" alt="Image 2">
+      <div class="quote">谢谢你无条件的爱。</div>
+    </div>
+    <div class="mySlides">
+      <img src="IMG_3067.JPG" alt="Image 3">
+      <div class="quote">我爱你！</div>
+    </div>
+  </div>
+
+<div class="stickers">
+    <img src="6455699.png" alt="Heart Sticker">
+    <img src="pngtree-happy-mothers-day-illustration-of-child-hugging-mother-illustration-of-mother-png-image_13161736.png" alt="Flower Sticker">
+    <img src="6426761.png" alt="Cupcake Sticker">
+    <img src="happy-cute-sticker-decoration-free-png.webp" alt="Butterfly Sticker">
+    <img src="pngtree-cute-cartoon-muffins-or-cupcakes-stickers-illustration-colored-cupcake-png-image_8856075.png" alt="Cupcake Sticker">
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="ScreenRecording_05-10-2025 18-22-28_1.mp3" type="audio/mpeg">
+    你的浏览器不支持音频播放。
+  </audio>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("mySlides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    const music = document.getElementById("bgMusic");
+    const images = document.querySelectorAll(".mySlides img");
+    let audioUnlocked = false;
+
+    document.body.addEventListener("click", () => {
+      if (!audioUnlocked) {
+        audioUnlocked = true;
+        images.forEach(img => {
+          img.addEventListener("mouseenter", () => {
+            music.play();
+          });
+          img.addEventListener("mouseleave", () => {
+            music.pause();
+          });
+        });
+      }
+    }, { once: true });
+  </script>
+</body>
+</html>
